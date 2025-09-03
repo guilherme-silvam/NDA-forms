@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Gerar Proposta (.docx)</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <div class="container">
+    <h1>Gerar Proposta (.docx)</h1>
+
+    <form method="post" action="/gerar" enctype="multipart/form-data">
+      <fieldset>
+        <legend>Dados do Cliente</legend>
+        <label>Cliente
+          <input type="text" name="CLIENTE" placeholder="Nome do cliente" required>
+        </label>
+        <label>Endereço
+          <input type="text" name="ENDERECO" placeholder="Rua, número, bairro, cidade - UF" required>
+        </label>
+        <label>CNPJ
+          <input type="text" name="CNPJ" placeholder="00.000.000/0000-00" inputmode="numeric" maxlength="18" required>
+        </label>
+      </fieldset>
+
+      <fieldset>
+        <legend>Contrato e Data</legend>
+        <label>Contrato
+          <input type="text" name="CONTRATO" placeholder="Número/identificação do contrato" required>
+        </label>
+        <label>Data
+          <input type="date" name="DATA" required>
+        </label>
+      </fieldset>
+
+     
+
+      <fieldset>
+        <legend>Template (.docx) (opcional)</legend>
+        <label>Enviar template (.docx)
+          <input type="file" name="template_file" accept=".docx">
+        </label>
+        <p class="hint">Se não enviar, o app usará o arquivo <code>template.docx</code> da pasta raiz.</p>
+      </fieldset>
+
+      <button type="submit">Gerar .docx</button>
+    </form>
+  </div>
+</body>
+</html>
